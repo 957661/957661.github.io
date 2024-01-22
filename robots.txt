@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /bfs/subtitle/
+Disallow: /bfs/ai_subtitle/
