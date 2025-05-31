@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>域名出售</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4a90e2, #007aff);
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .container h2 {
+            margin-top: 0;
+            font-size: 42px;
+            color: #333;
+        }
+        .container p {
+            font-size: 18px;
+        }
+        .container p.domain-name {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .container input[type="text"],
+        .container button {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container input[type="text"] {
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .container button {
+            padding: 14px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007aff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0066cc;
+        }
+        .contact-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            font-size: 19px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+        }
+        .contact-info img {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>域名出售</h2>
+    <p class="domain-name">666666.cm</p>
+    <p>请填写您的联系方式和报价，我们将尽快与您联系。</p>
+    <input type="text" id="contact" placeholder="联系方式（微信）">
+    <input type="text" id="offer" placeholder="报价（人民币）">
+    <button onclick="submitOffer()">提交报价</button>
+
+    <div class="contact-info">
+        <div>
+            <img src="https://os.i.gtimg.cn/music/photo_new/T053XD00001FLPFp0L8KnR.png" alt="WeChat Icon"> <!-- Replace with your WeChat icon -->
+            微信: 478478
+        </div>
+        <div>
+            <img src="https://os.i.gtimg.cn/music/photo_new/T053XD00002f3BEJ4Km2cb.png" alt="Email Icon"> <!-- Replace with your Email icon -->
+            邮箱: 5555555@163.com
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitOffer() {
+        const contact = document.getElementById('contact').value.trim();
+        const offer = document.getElementById('offer').value.trim();
+
+        if (!contact || !offer) {
+            alert("请填写联系方式和报价！");
+            return;
+        }
+
+        const url = `https://api.day.app/TrEcTjbpprbKCvSShYEZdc/${contact}/价格${offer}人民币`;
+
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    alert("提交成功！我们将尽快与您联系。");
+                } else {
+                    alert("提交失败，请稍后重试。");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("提交失败，请检查网络连接。");
+            });
+    }
+</script>
+
+</body>
+</html>
